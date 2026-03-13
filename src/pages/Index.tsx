@@ -17,10 +17,10 @@ function GridSection({ children }: { children: React.ReactNode }) {
         <AnimatedGridPattern
           numSquares={15}
           maxOpacity={0.25}
-          duration={1.5}
+          duration={3}
           className="absolute inset-0 h-full w-full text-black/50 opacity-70"
-          width={60}
-          height={60}
+          width={5}
+          height={5}
         />
       </div>
       <div className="relative z-10">{children}</div>
