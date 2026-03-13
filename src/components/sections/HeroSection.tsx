@@ -16,7 +16,7 @@ export function HeroSection() {
           <img
             src={logo}
             alt="JM PAY"
-            className="h-20 w-auto mb-6"
+            className="h-20 w-auto mb-6 brightness-0 invert"
           />
           <p className="text-primary text-sm font-medium tracking-widest uppercase mb-6">
             Infraestrutura de pagamentos
