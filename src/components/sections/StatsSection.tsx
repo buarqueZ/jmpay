@@ -45,7 +45,7 @@ function StatItem({ stat, trigger }: { stat: typeof stats[0]; trigger: boolean }
   const current = useCountUp(stat.value, 2000, trigger);
   return (
     <div className="text-center">
-      <p className="text-3xl md:text-5xl font-bold text-foreground mb-2">
+      <p className="text-3xl md:text-5xl font-bold text-primary mb-2">
         {formatValue(current, stat)}
       </p>
       <p className="text-sm md:text-base text-muted-foreground">{stat.label}</p>
@@ -69,7 +69,7 @@ export function StatsSection() {
   }, []);
 
   return (
-    <section ref={ref} className="py-16 md:py-24 bg-background">
+    <section ref={ref} className="py-10 md:py-14 bg-background">
       <div className="container-tight grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
         {stats.map((stat) => (
           <StatItem key={stat.label} stat={stat} trigger={visible} />
