@@ -33,13 +33,6 @@ export function HeroSection() {
             <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2">
               Começar integração <ArrowRight size={18} />
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-primary/40 text-primary hover:bg-primary/10"
-            >
-              Explorar a plataforma
-            </Button>
           </div>
         </motion.div>
       </div>
