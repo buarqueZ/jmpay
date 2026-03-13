@@ -29,7 +29,7 @@ export function FAQSection() {
           <p className="text-primary text-sm font-medium tracking-widest uppercase mb-4">
             FAQ
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+          <h2 className="text-3xl md:text-4xl font-bold text-white">
             Perguntas frequentes
           </h2>
         </motion.div>
