@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 
 import { Header } from "@/components/sections/Header";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { StatsSection } from "@/components/sections/StatsSection";
 
 const HistorySection = lazy(() => import("@/components/sections/HistorySection").then(m => ({ default: m.HistorySection })));
 const SolutionsSection = lazy(() => import("@/components/sections/SolutionsSection").then(m => ({ default: m.SolutionsSection })));
@@ -37,6 +38,9 @@ const Index = () => {
       <DarkSection className="rounded-b-[5%] overflow-hidden">
         <HeroSection />
       </DarkSection>
+
+      {/* Stats counter */}
+      <StatsSection />
 
       <Suspense fallback={null}>
         {/* Plain: History */}
