@@ -42,10 +42,10 @@ const Index = () => {
           <HistorySection />
         </PlainSection>
 
-        {/* Grid: Solutions */}
-        <GridSection>
+        {/* Dark: Solutions */}
+        <DarkSection>
           <SolutionsSection />
-        </GridSection>
+        </DarkSection>
 
         {/* Plain: Security */}
         <PlainSection>
