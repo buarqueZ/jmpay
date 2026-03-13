@@ -59,14 +59,9 @@ const Index = () => {
           <FAQSection />
         </DarkSection>
 
-        {/* Plain: CTA */}
+        {/* Plain: CTA + Contact Form */}
         <PlainSection>
           <CTASection />
-        </PlainSection>
-
-        {/* Plain: Contact Form */}
-        <PlainSection>
-          <ContactFormSection />
         </PlainSection>
 
         <Footer />
