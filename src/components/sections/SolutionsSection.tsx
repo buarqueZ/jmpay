@@ -24,7 +24,7 @@ export function SolutionsSection() {
           <p className="text-primary text-sm font-medium tracking-widest uppercase mb-4">
             Soluções
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+          <h2 className="text-3xl md:text-4xl font-bold text-white">
             Tudo o que sua operação precisa, em um só lugar
           </h2>
         </motion.div>
@@ -37,15 +37,15 @@ export function SolutionsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="p-6 rounded-lg transition-all bg-card group shadow-[0_2px_8px_-2px_hsl(30_10%_15%_/0.06)]"
+              className="p-6 rounded-lg transition-all bg-white/5 border border-white/10 group"
             >
               <s.icon
                 size={28}
                 className="text-primary mb-4"
                 strokeWidth={1.5}
               />
-              <h3 className="text-lg font-display font-bold text-foreground mb-2">{s.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+              <h3 className="text-lg font-display font-bold text-white mb-2">{s.title}</h3>
+              <p className="text-sm text-white/60 leading-relaxed">{s.desc}</p>
             </motion.div>
           ))}
         </div>

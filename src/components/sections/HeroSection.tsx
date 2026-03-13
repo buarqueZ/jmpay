@@ -21,11 +21,11 @@ export function HeroSection() {
           <p className="text-primary text-sm font-medium tracking-widest uppercase mb-6">
             Infraestrutura de pagamentos
           </p>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
             Pagamentos sem fricção.{" "}
             <span className="text-primary">Infraestrutura de verdade.</span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl text-white/70 max-w-2xl mb-10 leading-relaxed">
             PIX, cartões, split de pagamentos e automação financeira em uma única plataforma.
           </p>
 
