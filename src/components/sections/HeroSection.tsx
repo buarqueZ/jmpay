@@ -38,7 +38,11 @@ export function HeroSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2">
+            <Button
+              size="lg"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2"
+              onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
+            >
               Começar integração <ArrowRight size={18} />
             </Button>
           </div>

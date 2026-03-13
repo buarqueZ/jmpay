@@ -22,13 +22,18 @@ export function CTASection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2">
+            <Button
+              size="lg"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2"
+              onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
+            >
               Começar integração <ArrowRight size={18} />
             </Button>
             <Button
               size="lg"
               variant="outline"
               className="border-black/40 text-black hover:bg-black/10"
+              onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
             >
               Solicitar apresentação
             </Button>
