@@ -39,6 +39,9 @@ const Index = () => {
         <HeroSection />
       </DarkSection>
 
+      {/* Stats counter */}
+      <StatsSection />
+
       <Suspense fallback={null}>
         {/* Plain: History */}
         <PlainSection>
