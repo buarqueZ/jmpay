@@ -84,10 +84,14 @@ export function Header() {
             </button>
           ))}
           <div className="flex flex-col gap-2 pt-4">
-            <Button variant="outline" size="sm" className="border-black/40 text-black">
+            <Button variant="outline" size="sm" className="border-black/40 text-black"
+              onClick={() => { setOpen(false); document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" }); }}
+            >
               Solicitar apresentação
             </Button>
-            <Button size="sm" className="bg-primary text-primary-foreground">
+            <Button size="sm" className="bg-primary text-primary-foreground"
+              onClick={() => { setOpen(false); document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" }); }}
+            >
               Começar integração
             </Button>
           </div>
