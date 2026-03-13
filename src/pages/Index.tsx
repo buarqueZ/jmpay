@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import { cn } from "@/lib/utils";
 
 import { Header } from "@/components/sections/Header";
 import { HeroSection } from "@/components/sections/HeroSection";
