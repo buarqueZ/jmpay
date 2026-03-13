@@ -15,8 +15,8 @@
     --popover: 38 15% 91%;
     --popover-foreground: 30 10% 15%;
 
-    --primary: 46 85% 52%;
-    --primary-foreground: 30 15% 12%;
+    --primary: 24 100% 44%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 40 20% 85%;
     --secondary-foreground: 30 10% 15%;
@@ -24,15 +24,15 @@
     --muted: 38 12% 88%;
     --muted-foreground: 30 5% 35%;
 
-    --accent: 46 70% 48%;
-    --accent-foreground: 30 15% 12%;
+    --accent: 24 100% 44%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 38 18% 78%;
     --input: 38 12% 82%;
-    --ring: 46 85% 52%;
+    --ring: 24 100% 44%;
 
     --radius: 0.5rem;
 
@@ -41,12 +41,12 @@
 
     --sidebar-background: 0 0% 95%;
     --sidebar-foreground: 0 0% 10%;
-    --sidebar-primary: 46 100% 62%;
+    --sidebar-primary: 24 100% 44%;
     --sidebar-primary-foreground: 0 0% 10%;
     --sidebar-accent: 0 0% 90%;
     --sidebar-accent-foreground: 0 0% 10%;
     --sidebar-border: 0 0% 85%;
-    --sidebar-ring: 46 100% 62%;
+    --sidebar-ring: 24 100% 44%;
 
     --font-display: 'Instrument Sans', sans-serif;
     --font-body: 'Inter', sans-serif;
