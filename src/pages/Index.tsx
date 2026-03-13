@@ -34,7 +34,7 @@ const Index = () => {
       <Header />
 
       {/* Dark: Hero */}
-      <DarkSection className="rounded-b-[5%]">
+      <DarkSection className="rounded-b-[10%] overflow-hidden">
         <HeroSection />
       </DarkSection>
 
