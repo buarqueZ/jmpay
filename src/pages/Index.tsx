@@ -31,10 +31,10 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Grid: Hero */}
-      <GridSection>
+      {/* Dark: Hero */}
+      <DarkSection>
         <HeroSection />
-      </GridSection>
+      </DarkSection>
 
       <Suspense fallback={null}>
         {/* Plain: History */}
