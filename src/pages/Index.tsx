@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import { cn } from "@/lib/utils";
 
 import { Header } from "@/components/sections/Header";
 import { HeroSection } from "@/components/sections/HeroSection";
@@ -10,9 +11,9 @@ const FAQSection = lazy(() => import("@/components/sections/FAQSection").then(m 
 const CTASection = lazy(() => import("@/components/sections/CTASection").then(m => ({ default: m.CTASection })));
 const Footer = lazy(() => import("@/components/sections/Footer").then(m => ({ default: m.Footer })));
 
-function DarkSection({ children }: { children: React.ReactNode }) {
+function DarkSection({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className="relative bg-black">
+    <div className={cn("relative bg-black", className)}>
       <div className="relative z-10">{children}</div>
     </div>
   );
@@ -32,7 +33,7 @@ const Index = () => {
       <Header />
 
       {/* Dark: Hero */}
-      <DarkSection>
+      <DarkSection className="rounded-b-[30%]">
         <HeroSection />
       </DarkSection>
 
