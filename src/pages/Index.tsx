@@ -19,8 +19,8 @@ function GridSection({ children }: { children: React.ReactNode }) {
           maxOpacity={0.25}
           duration={3}
           className="absolute inset-0 h-full w-full text-black/50 opacity-70"
-          width={5}
-          height={5}
+          width={10}
+          height={10}
         />
       </div>
       <div className="relative z-10">{children}</div>
