@@ -4,7 +4,7 @@ const stats = [
   { value: 10000, prefix: "+", suffix: "", label: "Empresas Impactadas", display: "10K" },
   { value: 1, prefix: "+", suffix: " bi", label: "Transações no Último Ano", display: "1" },
   { value: 100, prefix: "+", suffix: "", label: "Países Regulamentados", display: "100" },
-  { value: 2, prefix: "+", suffix: " bi", label: "Empresas já faturaram", display: "2" },
+  { value: 2, prefix: "+R$", suffix: " bi", label: "Empresas já faturaram", display: "2" },
 ];
 
 function formatValue(current: number, stat: typeof stats[0]) {
