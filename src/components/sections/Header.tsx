@@ -54,10 +54,13 @@ export function Header() {
             variant="outline"
             size="sm"
             className="border-black/40 text-black hover:bg-black/10"
+            onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
           >
             Solicitar apresentação
           </Button>
-          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
+          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90"
+            onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
+          >
             Começar integração
           </Button>
         </div>
