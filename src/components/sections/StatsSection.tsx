@@ -45,7 +45,7 @@ function StatItem({ stat, trigger }: { stat: typeof stats[0]; trigger: boolean }
   const current = useCountUp(stat.value, 2000, trigger);
   return (
     <div className="text-center">
-      <p className="text-3xl md:text-5xl font-bold text-foreground mb-2">
+      <p className="text-3xl md:text-5xl font-bold text-primary mb-2">
         {formatValue(current, stat)}
       </p>
       <p className="text-sm md:text-base text-muted-foreground">{stat.label}</p>
