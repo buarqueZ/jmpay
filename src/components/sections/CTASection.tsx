@@ -107,7 +107,7 @@ export function CTASection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
           >
-            <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-lg">
+            <div className="bg-card rounded-2xl p-6 md:p-8">
               <h3 className="text-xl font-bold text-foreground mb-1">Fale com nosso time</h3>
               <p className="text-sm text-muted-foreground mb-6">
                 Preencha o formulário e entraremos em contato em breve.
