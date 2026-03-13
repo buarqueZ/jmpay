@@ -81,23 +81,6 @@ export function CTASection() {
               Fale com o time da JM PAY e veja como centralizar recebimentos, repasses e automação financeira em uma única operação.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                size="lg"
-                className="gap-2"
-                onClick={() => document.getElementById("contato-form")?.focus()}
-              >
-                Começar integração <ArrowRight size={18} />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-border text-foreground hover:bg-muted"
-                onClick={() => document.getElementById("contato-form")?.focus()}
-              >
-                Solicitar apresentação
-              </Button>
-            </div>
           </motion.div>
 
           {/* Right: Contact form */}
