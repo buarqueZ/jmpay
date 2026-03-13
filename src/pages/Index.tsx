@@ -64,6 +64,11 @@ const Index = () => {
           <CTASection />
         </PlainSection>
 
+        {/* Plain: Contact Form */}
+        <PlainSection>
+          <ContactFormSection />
+        </PlainSection>
+
         <Footer />
       </Suspense>
     </div>
