@@ -33,7 +33,7 @@ const Index = () => {
       <Header />
 
       {/* Dark: Hero */}
-      <DarkSection className="rounded-b-[30%]">
+      <DarkSection className="rounded-b-[10%]">
         <HeroSection />
       </DarkSection>
 
