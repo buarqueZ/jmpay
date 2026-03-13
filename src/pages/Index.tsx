@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { AnimatedGridPattern } from "@/components/ui/animated-grid-pattern";
+
 import { Header } from "@/components/sections/Header";
 import { HeroSection } from "@/components/sections/HeroSection";
 
