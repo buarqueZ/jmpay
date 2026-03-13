@@ -10,19 +10,9 @@ const FAQSection = lazy(() => import("@/components/sections/FAQSection").then(m 
 const CTASection = lazy(() => import("@/components/sections/CTASection").then(m => ({ default: m.CTASection })));
 const Footer = lazy(() => import("@/components/sections/Footer").then(m => ({ default: m.Footer })));
 
-function GridSection({ children }: { children: React.ReactNode }) {
+function DarkSection({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative">
-      <div className="absolute inset-0 overflow-hidden">
-        <AnimatedGridPattern
-          numSquares={15}
-          maxOpacity={0.25}
-          duration={3}
-          className="absolute inset-0 h-full w-full text-black/50 opacity-70"
-          width={10}
-          height={10}
-        />
-      </div>
+    <div className="relative bg-black">
       <div className="relative z-10">{children}</div>
     </div>
   );
