@@ -2,10 +2,18 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import logo from "@/assets/logo.png";
+import heroBg from "@/assets/hero-bg.webp";
 
 export function HeroSection() {
   return (
-    <section className="relative section-padding pt-32 md:pt-40">
+    <section className="relative section-padding pt-32 md:pt-40 overflow-hidden">
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${heroBg})` }}
+      />
+      {/* Diagonal gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
       <div className="container-tight relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
