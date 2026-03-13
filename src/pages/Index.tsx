@@ -9,7 +9,7 @@ const SolutionsSection = lazy(() => import("@/components/sections/SolutionsSecti
 const SecuritySection = lazy(() => import("@/components/sections/SecuritySection").then(m => ({ default: m.SecuritySection })));
 const FAQSection = lazy(() => import("@/components/sections/FAQSection").then(m => ({ default: m.FAQSection })));
 const CTASection = lazy(() => import("@/components/sections/CTASection").then(m => ({ default: m.CTASection })));
-const ContactFormSection = lazy(() => import("@/components/sections/ContactFormSection").then(m => ({ default: m.ContactFormSection })));
+
 const Footer = lazy(() => import("@/components/sections/Footer").then(m => ({ default: m.Footer })));
 
 function DarkSection({ children, className }: { children: React.ReactNode; className?: string }) {
