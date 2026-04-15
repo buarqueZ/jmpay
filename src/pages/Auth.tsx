@@ -110,15 +110,15 @@ export default function Auth() {
       </div>
 
       {/* Right — Form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-6 md:p-12">
-        <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-4 md:p-8">
+        <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-6">
           {/* Logo */}
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-4">
             <img src={logo} alt="JM PAY" className="h-10 w-auto cursor-pointer" onClick={() => navigate("/")} />
           </div>
 
           {/* Tab switcher */}
-          <div className="flex rounded-lg bg-white/60 p-1 mb-8 shadow-sm">
+          <div className="flex rounded-lg bg-gray-100 p-1 mb-5 shadow-sm">
             {(["login", "cadastro"] as const).map((t) => (
               <button
                 key={t}
@@ -174,7 +174,7 @@ export default function Auth() {
                 : "opacity-0 translate-x-8 h-0 overflow-hidden pointer-events-none absolute"
             )}
           >
-            <form onSubmit={handleCadastro} className="space-y-4">
+            <form onSubmit={handleCadastro} className="space-y-2.5">
               <div>
                 <Label htmlFor="c-nome" className="text-gray-700">Nome completo</Label>
                 <Input id="c-nome" value={form.nome} onChange={(e) => setForm({ ...form, nome: e.target.value })} className="mt-1 bg-white border-gray-200 text-gray-900" />
