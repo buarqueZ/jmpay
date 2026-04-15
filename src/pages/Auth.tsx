@@ -106,11 +106,11 @@ export default function Auth() {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-      const text = (await res.text()).trim();
-      if (text === "CADASTRO JA EXISTE NA BASE DE DADOS") {
-        toast({ title: "Cadastro já existe", description: "Esse cadastro já consta na nossa base. Use dados diferentes ou faça login.", variant: "destructive" });
-      } else if (text === "CADASTRO VÁLIDO") {
-        toast({ title: "Cadastro realizado!", description: "Faça login para continuar." });
+      const text = (await res.text()).trim().toLowerCase();
+      if (text.includes("já existe na base de dados") || text.includes("ja existe na base de dados")) {
+        toast({ title: "Erro ao realizar cadastro", description: "O cadastro já existe na base de dados. Tente novamente com outros dados.", variant: "destructive" });
+      } else if (text.includes("cadastro válido") || text.includes("cadastro valido")) {
+        toast({ title: "Cadastro realizado com sucesso!", description: "Faça login para continuar." });
         setTab("login");
         setLoginEmail(form.email);
       } else {
