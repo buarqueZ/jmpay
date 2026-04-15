@@ -18,8 +18,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/login" element={<Auth />} />
-          <Route path="/cadastro" element={<Auth />} />
+          <Route path="/infos" element={<Auth />} />
           <Route path="/plataforma" element={<Plataforma />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

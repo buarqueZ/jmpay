@@ -32,7 +32,7 @@ export default function Auth() {
   const navigate = useNavigate();
   const location = useLocation();
   const { toast } = useToast();
-  const [tab, setTab] = useState<"login" | "cadastro">(location.pathname === "/cadastro" ? "cadastro" : "login");
+  const [tab, setTab] = useState<"login" | "cadastro">("login");
   const [loading, setLoading] = useState(false);
 
   const [loginEmail, setLoginEmail] = useState("");
