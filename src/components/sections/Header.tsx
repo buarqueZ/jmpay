@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const navLinks = ["Soluções", "Infraestrutura", "Segurança", "Sobre", "FAQ"];
@@ -8,6 +9,7 @@ const navLinks = ["Soluções", "Infraestrutura", "Segurança", "Sobre", "FAQ"];
 export function Header() {
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,14 +56,14 @@ export function Header() {
             variant="outline"
             size="sm"
             className="border-black/40 text-black hover:bg-black/10"
-            onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => navigate("/login")}
           >
-            Solicitar apresentação
+            Login
           </Button>
           <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90"
-            onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => navigate("/cadastro")}
           >
-            Começar integração
+            Cadastro
           </Button>
         </div>
 
@@ -85,14 +87,14 @@ export function Header() {
           ))}
           <div className="flex flex-col gap-2 pt-4">
             <Button variant="outline" size="sm" className="border-black/40 text-black"
-              onClick={() => { setOpen(false); document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" }); }}
+              onClick={() => { setOpen(false); navigate("/login"); }}
             >
-              Solicitar apresentação
+              Login
             </Button>
             <Button size="sm" className="bg-primary text-primary-foreground"
-              onClick={() => { setOpen(false); document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" }); }}
+              onClick={() => { setOpen(false); navigate("/cadastro"); }}
             >
-              Começar integração
+              Cadastro
             </Button>
           </div>
         </div>

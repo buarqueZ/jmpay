@@ -69,7 +69,7 @@ export function StatsSection() {
   }, []);
 
   return (
-    <section ref={ref} className="py-6 md:py-8 bg-background">
+    <section ref={ref} className="pt-10 md:pt-14 pb-4 md:pb-6 bg-background">
       <div className="container-tight grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
         {stats.map((stat) => (
           <StatItem key={stat.label} stat={stat} trigger={visible} />
