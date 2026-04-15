@@ -26,7 +26,7 @@ function maskDate(value: string) {
   return value.replace(/\D/g, "").slice(0, 8).replace(/(\d{2})(\d)/, "$1/$2").replace(/(\d{2})(\d)/, "$1/$2");
 }
 
-const IMG_URL = "https://baserow-backend-production20240528124524339000000001.s3.amazonaws.com/user_files/HewtYUgVTkk1s6JgIIxtcXoqEEOe2Nx1_cd5a739dc6be181d203a63724233cc6a192d4b8c3ad91a5e93801137effd9de4.png";
+const IMG_URL = "https://baserow-backend-production20240528124524339000000001.s3.amazonaws.com/user_files/38RTjRE1dMFEDUKKuMx5iSgrNeZ6n3OX_b5a3766820f8ce777a7d5e37ccbe4254e1a6f07fda240d0082456c07086b2b1b.png";
 
 export default function Auth() {
   const navigate = useNavigate();
@@ -105,13 +105,13 @@ export default function Auth() {
   return (
     <div className="min-h-screen flex" style={{ backgroundColor: "#f2f2f2" }}>
       {/* Left — Image */}
-      <div className="hidden lg:flex lg:w-1/2 items-center justify-center p-8">
-        <img src={IMG_URL} alt="JM PAY" className="max-w-full max-h-[85vh] object-contain rounded-2xl" />
+      <div className="hidden lg:block lg:w-1/2 relative overflow-hidden">
+        <img src={IMG_URL} alt="JM PAY" className="absolute inset-0 w-full h-full object-cover" />
       </div>
 
       {/* Right — Form */}
       <div className="w-full lg:w-1/2 flex items-center justify-center p-6 md:p-12">
-        <div className="w-full max-w-md">
+        <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
           {/* Logo */}
           <div className="flex justify-center mb-8">
             <img src={logo} alt="JM PAY" className="h-10 w-auto cursor-pointer" onClick={() => navigate("/")} />
