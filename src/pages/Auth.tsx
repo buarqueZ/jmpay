@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -30,9 +30,9 @@ const IMG_URL = "https://baserow-backend-production20240528124524339000000001.s3
 
 export default function Auth() {
   const navigate = useNavigate();
-  const location = useLocation();
+  
   const { toast } = useToast();
-  const [tab, setTab] = useState<"login" | "cadastro">(location.pathname === "/cadastro" ? "cadastro" : "login");
+  const [tab, setTab] = useState<"login" | "cadastro">("login");
   const [loading, setLoading] = useState(false);
 
   const [loginEmail, setLoginEmail] = useState("");
