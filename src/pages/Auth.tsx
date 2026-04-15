@@ -102,13 +102,20 @@ export default function Auth() {
     if (Object.keys(errs).length) return;
     setLoading(true);
     try {
-      await fetch("https://auto.zendry.com/webhook/cadastrojmpay", {
+      const res = await fetch("https://auto.zendry.com/webhook/cadastrojmpay", {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-      toast({ title: "Cadastro realizado!", description: "Faça login para continuar." });
-      setTab("login");
-      setLoginEmail(form.email);
+      const text = (await res.text()).trim();
+      if (text === "CADASTRO JA EXISTE NA BASE DE DADOS") {
+        toast({ title: "Cadastro já existe", description: "Esse cadastro já consta na nossa base. Use dados diferentes ou faça login.", variant: "destructive" });
+      } else if (text === "CADASTRO VÁLIDO") {
+        toast({ title: "Cadastro realizado!", description: "Faça login para continuar." });
+        setTab("login");
+        setLoginEmail(form.email);
+      } else {
+        toast({ title: "Erro inesperado", description: "Tente novamente.", variant: "destructive" });
+      }
     } catch {
       toast({ title: "Erro ao cadastrar", description: "Tente novamente.", variant: "destructive" });
     } finally {
