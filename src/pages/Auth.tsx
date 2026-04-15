@@ -80,9 +80,23 @@ export default function Auth() {
     const docDigits = form.documento.replace(/\D/g, "");
     if (docDigits.length !== 11 && docDigits.length !== 14) errs.documento = "CPF ou CNPJ inválido";
     if (form.telefone.replace(/\D/g, "").length < 10) errs.telefone = "Telefone inválido";
-    if (form.dataNascimento.replace(/\D/g, "").length !== 8) errs.dataNascimento = "Data inválida";
+    const dateDigits = form.dataNascimento.replace(/\D/g, "");
+    if (dateDigits.length !== 8) {
+      errs.dataNascimento = "Data inválida";
+    } else {
+      const day = parseInt(dateDigits.slice(0, 2), 10);
+      const month = parseInt(dateDigits.slice(2, 4), 10) - 1;
+      const year = parseInt(dateDigits.slice(4, 8), 10);
+      const birth = new Date(year, month, day);
+      const today = new Date();
+      let age = today.getFullYear() - birth.getFullYear();
+      const m = today.getMonth() - birth.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) age--;
+      if (age < 18) errs.dataNascimento = "Você deve ter pelo menos 18 anos";
+    }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errs.email = "E-mail inválido";
-    if (form.senha.length < 6) errs.senha = "Mínimo 6 caracteres";
+    if (form.senha.length < 8 || !/[A-Z]/.test(form.senha) || !/[^A-Za-z0-9]/.test(form.senha))
+      errs.senha = "Mínimo 8 caracteres, 1 maiúscula e 1 caractere especial";
     if (!lgpd) errs.lgpd = "Aceite os termos";
     setCadErrors(errs);
     if (Object.keys(errs).length) return;
