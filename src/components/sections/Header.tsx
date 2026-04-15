@@ -56,12 +56,12 @@ export function Header() {
             variant="outline"
             size="sm"
             className="border-black/40 text-black hover:bg-black/10"
-            onClick={() => navigate("/login")}
+            onClick={() => navigate("/infos")}
           >
             Login
           </Button>
           <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90"
-            onClick={() => navigate("/cadastro")}
+            onClick={() => navigate("/infos")}
           >
             Cadastro
           </Button>
@@ -87,12 +87,12 @@ export function Header() {
           ))}
           <div className="flex flex-col gap-2 pt-4">
             <Button variant="outline" size="sm" className="border-black/40 text-black"
-              onClick={() => { setOpen(false); navigate("/login"); }}
+              onClick={() => { setOpen(false); navigate("/infos"); }}
             >
               Login
             </Button>
             <Button size="sm" className="bg-primary text-primary-foreground"
-              onClick={() => { setOpen(false); navigate("/cadastro"); }}
+              onClick={() => { setOpen(false); navigate("/infos"); }}
             >
               Cadastro
             </Button>
