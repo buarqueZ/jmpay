@@ -26,6 +26,8 @@ function maskDate(value: string) {
   return value.replace(/\D/g, "").slice(0, 8).replace(/(\d{2})(\d)/, "$1/$2").replace(/(\d{2})(\d)/, "$1/$2");
 }
 
+const IMG_URL = "https://baserow-backend-production20240528124524339000000001.s3.amazonaws.com/user_files/HewtYUgVTkk1s6JgIIxtcXoqEEOe2Nx1_cd5a739dc6be181d203a63724233cc6a192d4b8c3ad91a5e93801137effd9de4.png";
+
 export default function Auth() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -33,12 +35,10 @@ export default function Auth() {
   const [tab, setTab] = useState<"login" | "cadastro">(location.pathname === "/cadastro" ? "cadastro" : "login");
   const [loading, setLoading] = useState(false);
 
-  // Login state
   const [loginEmail, setLoginEmail] = useState("");
   const [loginSenha, setLoginSenha] = useState("");
   const [loginErrors, setLoginErrors] = useState<Record<string, string>>({});
 
-  // Cadastro state
   const [form, setForm] = useState({ nome: "", documento: "", telefone: "", dataNascimento: "", email: "", senha: "" });
   const [lgpd, setLgpd] = useState(false);
   const [cadErrors, setCadErrors] = useState<Record<string, string>>({});
@@ -50,7 +50,6 @@ export default function Auth() {
     if (!loginSenha) errs.senha = "Senha é obrigatória";
     setLoginErrors(errs);
     if (Object.keys(errs).length) return;
-
     setLoading(true);
     try {
       const controller = new AbortController();
@@ -87,7 +86,6 @@ export default function Auth() {
     if (!lgpd) errs.lgpd = "Aceite os termos";
     setCadErrors(errs);
     if (Object.keys(errs).length) return;
-
     setLoading(true);
     try {
       await fetch("https://auto.zendry.com/webhook/cadastrojmpay", {
@@ -105,31 +103,38 @@ export default function Auth() {
   };
 
   return (
-    <div className="min-h-screen bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="w-full max-w-md bg-background rounded-2xl shadow-2xl overflow-hidden animate-scale-in">
-        {/* Header */}
-        <div className="flex flex-col items-center pt-8 pb-4 gap-3">
-          <img src={logo} alt="JM PAY" className="h-10 w-auto cursor-pointer" onClick={() => navigate("/")} />
-        </div>
+    <div className="min-h-screen flex" style={{ backgroundColor: "#f2f2f2" }}>
+      {/* Left — Image */}
+      <div className="hidden lg:flex lg:w-1/2 items-center justify-center p-8">
+        <img src={IMG_URL} alt="JM PAY" className="max-w-full max-h-[85vh] object-contain rounded-2xl" />
+      </div>
 
-        {/* Tab switcher */}
-        <div className="flex mx-6 mb-6 rounded-lg bg-muted p-1">
-          {(["login", "cadastro"] as const).map((t) => (
-            <button
-              key={t}
-              onClick={() => setTab(t)}
-              className={cn(
-                "flex-1 py-2 text-sm font-medium rounded-md transition-all duration-300",
-                tab === t ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"
-              )}
-            >
-              {t === "login" ? "Login" : "Cadastro"}
-            </button>
-          ))}
-        </div>
+      {/* Right — Form */}
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-6 md:p-12">
+        <div className="w-full max-w-md">
+          {/* Logo */}
+          <div className="flex justify-center mb-8">
+            <img src={logo} alt="JM PAY" className="h-10 w-auto cursor-pointer" onClick={() => navigate("/")} />
+          </div>
 
-        {/* Card content with animation */}
-        <div className="relative px-6 pb-8 overflow-hidden">
+          {/* Tab switcher */}
+          <div className="flex rounded-lg bg-white/60 p-1 mb-8 shadow-sm">
+            {(["login", "cadastro"] as const).map((t) => (
+              <button
+                key={t}
+                onClick={() => setTab(t)}
+                className={cn(
+                  "flex-1 py-2.5 text-sm font-semibold rounded-md transition-all duration-300",
+                  tab === t
+                    ? "bg-gradient-to-br from-[hsl(26,100%,45%)] to-[hsl(42,97%,51%)] text-white shadow-md"
+                    : "text-gray-500 hover:text-gray-700"
+                )}
+              >
+                {t === "login" ? "Login" : "Cadastro"}
+              </button>
+            ))}
+          </div>
+
           {/* Login */}
           <div
             className={cn(
@@ -139,24 +144,24 @@ export default function Auth() {
                 : "opacity-0 -translate-x-8 h-0 overflow-hidden pointer-events-none absolute"
             )}
           >
-            <form onSubmit={handleLogin} className="space-y-4">
+            <form onSubmit={handleLogin} className="space-y-5">
               <div>
-                <Label htmlFor="l-email">E-mail</Label>
-                <Input id="l-email" type="email" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)} />
+                <Label htmlFor="l-email" className="text-gray-700">E-mail</Label>
+                <Input id="l-email" type="email" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)} className="mt-1 bg-white border-gray-200 text-gray-900 placeholder:text-gray-400" />
                 {loginErrors.email && <p className="text-sm text-destructive mt-1">{loginErrors.email}</p>}
               </div>
               <div>
-                <Label htmlFor="l-senha">Senha</Label>
-                <Input id="l-senha" type="password" value={loginSenha} onChange={(e) => setLoginSenha(e.target.value)} />
+                <Label htmlFor="l-senha" className="text-gray-700">Senha</Label>
+                <Input id="l-senha" type="password" value={loginSenha} onChange={(e) => setLoginSenha(e.target.value)} className="mt-1 bg-white border-gray-200 text-gray-900" />
                 {loginErrors.senha && <p className="text-sm text-destructive mt-1">{loginErrors.senha}</p>}
               </div>
-              <Button type="submit" className="w-full" disabled={loading}>
+              <Button type="submit" className="w-full" size="lg" disabled={loading}>
                 {loading ? "Entrando..." : "Entrar"}
               </Button>
             </form>
-            <p className="text-center text-sm text-muted-foreground mt-4">
+            <p className="text-center text-sm text-gray-500 mt-6">
               Não tem conta?{" "}
-              <button onClick={() => setTab("cadastro")} className="text-primary hover:underline">Criar conta</button>
+              <button onClick={() => setTab("cadastro")} className="text-[hsl(26,100%,45%)] font-medium hover:underline">Criar conta</button>
             </p>
           </div>
 
@@ -169,51 +174,51 @@ export default function Auth() {
                 : "opacity-0 translate-x-8 h-0 overflow-hidden pointer-events-none absolute"
             )}
           >
-            <form onSubmit={handleCadastro} className="space-y-3">
+            <form onSubmit={handleCadastro} className="space-y-4">
               <div>
-                <Label htmlFor="c-nome">Nome completo</Label>
-                <Input id="c-nome" value={form.nome} onChange={(e) => setForm({ ...form, nome: e.target.value })} />
+                <Label htmlFor="c-nome" className="text-gray-700">Nome completo</Label>
+                <Input id="c-nome" value={form.nome} onChange={(e) => setForm({ ...form, nome: e.target.value })} className="mt-1 bg-white border-gray-200 text-gray-900" />
                 {cadErrors.nome && <p className="text-sm text-destructive mt-1">{cadErrors.nome}</p>}
               </div>
               <div>
-                <Label htmlFor="c-doc">CPF ou CNPJ</Label>
-                <Input id="c-doc" value={form.documento} maxLength={18} onChange={(e) => setForm({ ...form, documento: maskCpfCnpj(e.target.value) })} />
+                <Label htmlFor="c-doc" className="text-gray-700">CPF ou CNPJ</Label>
+                <Input id="c-doc" value={form.documento} maxLength={18} onChange={(e) => setForm({ ...form, documento: maskCpfCnpj(e.target.value) })} className="mt-1 bg-white border-gray-200 text-gray-900" />
                 {cadErrors.documento && <p className="text-sm text-destructive mt-1">{cadErrors.documento}</p>}
               </div>
               <div>
-                <Label htmlFor="c-tel">Telefone</Label>
-                <Input id="c-tel" value={form.telefone} maxLength={15} onChange={(e) => setForm({ ...form, telefone: maskPhone(e.target.value) })} />
+                <Label htmlFor="c-tel" className="text-gray-700">Telefone</Label>
+                <Input id="c-tel" value={form.telefone} maxLength={15} onChange={(e) => setForm({ ...form, telefone: maskPhone(e.target.value) })} className="mt-1 bg-white border-gray-200 text-gray-900" />
                 {cadErrors.telefone && <p className="text-sm text-destructive mt-1">{cadErrors.telefone}</p>}
               </div>
               <div>
-                <Label htmlFor="c-dt">Data de nascimento</Label>
-                <Input id="c-dt" placeholder="DD/MM/AAAA" value={form.dataNascimento} maxLength={10} onChange={(e) => setForm({ ...form, dataNascimento: maskDate(e.target.value) })} />
+                <Label htmlFor="c-dt" className="text-gray-700">Data de nascimento</Label>
+                <Input id="c-dt" placeholder="DD/MM/AAAA" value={form.dataNascimento} maxLength={10} onChange={(e) => setForm({ ...form, dataNascimento: maskDate(e.target.value) })} className="mt-1 bg-white border-gray-200 text-gray-900 placeholder:text-gray-400" />
                 {cadErrors.dataNascimento && <p className="text-sm text-destructive mt-1">{cadErrors.dataNascimento}</p>}
               </div>
               <div>
-                <Label htmlFor="c-email">E-mail</Label>
-                <Input id="c-email" type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
+                <Label htmlFor="c-email" className="text-gray-700">E-mail</Label>
+                <Input id="c-email" type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="mt-1 bg-white border-gray-200 text-gray-900" />
                 {cadErrors.email && <p className="text-sm text-destructive mt-1">{cadErrors.email}</p>}
               </div>
               <div>
-                <Label htmlFor="c-senha">Senha</Label>
-                <Input id="c-senha" type="password" value={form.senha} onChange={(e) => setForm({ ...form, senha: e.target.value })} />
+                <Label htmlFor="c-senha" className="text-gray-700">Senha</Label>
+                <Input id="c-senha" type="password" value={form.senha} onChange={(e) => setForm({ ...form, senha: e.target.value })} className="mt-1 bg-white border-gray-200 text-gray-900" />
                 {cadErrors.senha && <p className="text-sm text-destructive mt-1">{cadErrors.senha}</p>}
               </div>
               <div className="flex items-start gap-2">
                 <Checkbox id="c-lgpd" checked={lgpd} onCheckedChange={(v) => setLgpd(v === true)} className="mt-1" />
-                <Label htmlFor="c-lgpd" className="text-xs text-muted-foreground leading-snug">
+                <Label htmlFor="c-lgpd" className="text-xs text-gray-500 leading-snug">
                   Declaro que as informações fornecidas são de minha responsabilidade e autorizo a JM PAY a utilizá-las para manter contato, conforme a LGPD (Lei nº 13.709/2018).
                 </Label>
               </div>
               {cadErrors.lgpd && <p className="text-sm text-destructive">{cadErrors.lgpd}</p>}
-              <Button type="submit" className="w-full" disabled={loading}>
+              <Button type="submit" className="w-full" size="lg" disabled={loading}>
                 {loading ? "Cadastrando..." : "Cadastrar"}
               </Button>
             </form>
-            <p className="text-center text-sm text-muted-foreground mt-4">
+            <p className="text-center text-sm text-gray-500 mt-6">
               Já tem conta?{" "}
-              <button onClick={() => setTab("login")} className="text-primary hover:underline">Fazer login</button>
+              <button onClick={() => setTab("login")} className="text-[hsl(26,100%,45%)] font-medium hover:underline">Fazer login</button>
             </p>
           </div>
         </div>
