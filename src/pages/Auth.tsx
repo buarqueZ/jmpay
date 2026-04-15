@@ -60,11 +60,13 @@ export default function Auth() {
       });
       clearTimeout(timeout);
       const text = (await res.text()).trim().toLowerCase();
-      if (text === "sim") {
+      if (text.includes("login valido") || text.includes("login válido")) {
         toast({ title: "Login realizado com sucesso!" });
         navigate("/plataforma");
-      } else {
+      } else if (text.includes("login invalido") || text.includes("login inválido")) {
         toast({ title: "Dados inválidos", description: "Não encontramos esses dados na nossa base.", variant: "destructive" });
+      } else {
+        toast({ title: "Erro inesperado", description: "Tente novamente.", variant: "destructive" });
       }
     } catch {
       toast({ title: "Erro de conexão", description: "Tente novamente.", variant: "destructive" });
