@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -28,8 +28,9 @@ function maskDate(value: string) {
 
 export default function Auth() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { toast } = useToast();
-  const [tab, setTab] = useState<"login" | "cadastro">("login");
+  const [tab, setTab] = useState<"login" | "cadastro">(location.pathname === "/cadastro" ? "cadastro" : "login");
   const [loading, setLoading] = useState(false);
 
   // Login state
