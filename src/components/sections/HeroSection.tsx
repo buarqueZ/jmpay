@@ -1,16 +1,24 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ShoppingBag, Store, Tag, Users, Package, Sparkles, CheckCircle2 } from "lucide-react";
 
+const floatY = {
+  animate: { y: [0, -8, 0] },
+  transition: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+};
+
 export function HeroSection() {
   const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const mockupY = useTransform(scrollYProgress, [0, 1], [40, -40]);
+  const chipLeftY = useTransform(scrollYProgress, [0, 1], [20, -60]);
+  const chipRightY = useTransform(scrollYProgress, [0, 1], [-20, 50]);
 
   return (
-    <section id="inicio" className="relative pt-28 md:pt-36 pb-20 md:pb-28 overflow-hidden bg-white">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-primary/10 blur-3xl" />
-        <div className="absolute top-1/3 -left-40 w-[400px] h-[400px] rounded-full bg-primary/5 blur-3xl" />
-      </div>
+    <section ref={ref} id="inicio" className="relative pt-28 md:pt-36 pb-20 md:pb-28 overflow-hidden bg-white">
+
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
         <div className="grid lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-16 items-center">
