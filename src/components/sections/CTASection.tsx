@@ -74,7 +74,7 @@ export function CTASection() {
               transition={{ duration: 0.5 }}
               className="p-10 md:p-14 lg:p-16 relative overflow-hidden"
             >
-              <div className="absolute -top-24 -left-20 w-72 h-72 rounded-full bg-primary/30 blur-3xl" />
+              
               <div className="relative">
                 <span className="text-xs font-semibold tracking-widest text-primary uppercase">
                   Fale com a JMP

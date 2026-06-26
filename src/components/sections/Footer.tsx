@@ -37,7 +37,7 @@ export function Footer() {
 
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-xs text-white/40">© {new Date().getFullYear()} JMP Marketplace · Todos os direitos reservados</p>
-          <p className="text-xs text-white/40">Plataforma institucional · dados fictícios para demonstração</p>
+          <p className="text-xs text-white/40">Conectando marcas, lojas e pessoas</p>
         </div>
       </div>
     </footer>

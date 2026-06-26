@@ -47,7 +47,7 @@ export function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="rounded-2xl border border-border bg-white p-7 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all"
+              className="rounded-2xl border border-border bg-white p-7 hover:border-primary/40 hover:-translate-y-1 transition-all duration-300"
             >
               <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center mb-5">
                 <item.icon size={22} className="text-primary" />
