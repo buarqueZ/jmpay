@@ -6,48 +6,49 @@
 
 @layer base {
   :root {
-    --background: 40 10% 94%;
-    --foreground: 30 10% 15%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
 
-    --card: 38 15% 91%;
-    --card-foreground: 30 10% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
 
-    --popover: 38 15% 91%;
-    --popover-foreground: 30 10% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
 
-    --primary: 26 100% 45%;
+    --primary: 24 95% 55%;
     --primary-foreground: 0 0% 100%;
-    --gradient-primary: linear-gradient(135deg, hsl(26 100% 45%) 0%, hsl(42 97% 51%) 100%);
+    --primary-soft: 28 100% 96%;
+    --gradient-primary: linear-gradient(135deg, hsl(24 95% 55%) 0%, hsl(34 100% 62%) 100%);
 
-    --secondary: 40 20% 85%;
-    --secondary-foreground: 30 10% 15%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 8%;
 
-    --muted: 38 12% 88%;
-    --muted-foreground: 30 5% 35%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 42 97% 51%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 28 100% 96%;
+    --accent-foreground: 24 95% 45%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 38 18% 78%;
-    --input: 38 12% 82%;
-    --ring: 26 100% 45%;
+    --border: 0 0% 92%;
+    --input: 0 0% 92%;
+    --ring: 24 95% 55%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --card-warm: 36 20% 89%;
-    --card-warm-foreground: 30 10% 15%;
+    --card-warm: 28 100% 97%;
+    --card-warm-foreground: 0 0% 8%;
 
-    --sidebar-background: 0 0% 95%;
+    --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 0 0% 10%;
-    --sidebar-primary: 26 100% 45%;
-    --sidebar-primary-foreground: 0 0% 10%;
-    --sidebar-accent: 0 0% 90%;
+    --sidebar-primary: 24 95% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 96%;
     --sidebar-accent-foreground: 0 0% 10%;
-    --sidebar-border: 0 0% 85%;
-    --sidebar-ring: 26 100% 45%;
+    --sidebar-border: 0 0% 92%;
+    --sidebar-ring: 24 95% 55%;
 
     --font-display: 'Instrument Sans', sans-serif;
     --font-body: 'Inter', sans-serif;
