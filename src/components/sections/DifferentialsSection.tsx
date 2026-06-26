@@ -1,18 +1,18 @@
 import { motion } from "framer-motion";
-import { Sparkles, Layers, ShieldCheck, Palette, Gauge, Network } from "lucide-react";
+import { Sparkles, Layers, ShieldCheck, Heart, Gauge, Users } from "lucide-react";
 
 const diffs = [
-  { icon: Layers, title: "Plataforma multifuncional", text: "Pronta para diferentes segmentos e modelos de negócio." },
-  { icon: Sparkles, title: "Interface intuitiva", text: "Curva de aprendizado baixa, foco em produtividade." },
-  { icon: Network, title: "Gestão centralizada", text: "Toda a operação em um painel único e organizado." },
-  { icon: Palette, title: "Design adaptável", text: "Vitrine personalizável à identidade da sua marca." },
-  { icon: Gauge, title: "Performance", text: "Construída para alta disponibilidade e conversão." },
-  { icon: ShieldCheck, title: "Operação confiável", text: "Controles, permissões e auditoria em todas as camadas." },
+  { icon: Layers, title: "Variedade real", text: "Categorias amplas com marcas para diferentes momentos." },
+  { icon: Sparkles, title: "Curadoria com cuidado", text: "Lojas e produtos selecionados para garantir qualidade." },
+  { icon: ShieldCheck, title: "Ambiente confiável", text: "Vendedores verificados e regras claras de operação." },
+  { icon: Heart, title: "Experiência primeiro", text: "Interface limpa, navegação simples, foco em quem usa." },
+  { icon: Gauge, title: "Compra ágil", text: "Do interesse ao pedido em poucos passos." },
+  { icon: Users, title: "Comunidade ativa", text: "Compradores e lojistas que crescem junto com a JMP." },
 ];
 
 export function DifferentialsSection() {
   return (
-    <section className="relative py-24 md:py-32 bg-white">
+    <section id="diferenciais" className="relative py-24 md:py-32 bg-white">
       <div className="max-w-6xl mx-auto px-6 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

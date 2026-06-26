@@ -1,27 +1,27 @@
 import { motion } from "framer-motion";
-import { LayoutDashboard, Layers, Workflow } from "lucide-react";
+import { Heart, Shield, Sparkles } from "lucide-react";
 
 const items = [
   {
-    icon: LayoutDashboard,
-    title: "Painel centralizado",
-    text: "Vendedores, produtos, pedidos, comissões e relatórios em uma única operação.",
+    icon: Heart,
+    title: "Quem somos",
+    text: "A JMP é um marketplace nacional que reúne lojas, produtos e serviços em um ambiente único, pensado para a experiência do cliente.",
   },
   {
-    icon: Layers,
-    title: "Multifuncional",
-    text: "Pronta para diferentes segmentos: varejo, serviços, B2B, nichos e operações híbridas.",
+    icon: Sparkles,
+    title: "O que oferecemos",
+    text: "Uma curadoria de marcas e categorias variadas, com navegação simples e foco em descoberta de bons produtos.",
   },
   {
-    icon: Workflow,
-    title: "Foco em escala",
-    text: "Estruture sua operação de marketplace com agilidade, controle e experiência do usuário.",
+    icon: Shield,
+    title: "Como entregamos",
+    text: "Um ambiente confiável, com lojas verificadas, comunicação transparente e suporte ao comprador.",
   },
 ];
 
 export function AboutSection() {
   return (
-    <section id="plataforma" className="relative py-24 md:py-32 bg-white">
+    <section id="sobre" className="relative py-24 md:py-32 bg-white">
       <div className="max-w-6xl mx-auto px-6 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -30,12 +30,12 @@ export function AboutSection() {
           transition={{ duration: 0.5 }}
           className="max-w-3xl mb-16"
         >
-          <span className="text-xs font-semibold tracking-widest text-primary uppercase">A Plataforma</span>
+          <span className="text-xs font-semibold tracking-widest text-primary uppercase">Sobre a JMP</span>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mt-3 mb-5 leading-tight">
-            Estruture, opere e escale seu próprio <span className="text-primary">marketplace</span>
+            Um marketplace feito para conectar <span className="text-primary">marcas e pessoas</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            A JMP Marketplace é a solução para empresas que querem operar um marketplace próprio com gestão completa, do cadastro de vendedores ao relatório final.
+            A JMP nasceu para ser um espaço onde lojas encontram seus próximos clientes e clientes encontram produtos com confiança, variedade e uma experiência consistente.
           </p>
         </motion.div>
 
