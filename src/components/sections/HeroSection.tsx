@@ -5,7 +5,7 @@ import { ArrowRight, ShoppingBag, Store, Tag, Users, Package, Sparkles, CheckCir
 
 const floatY = {
   animate: { y: [0, -8, 0] },
-  transition: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+  transition: { duration: 6, repeat: Infinity, ease: "easeInOut" as const },
 };
 
 export function HeroSection() {
@@ -152,7 +152,7 @@ export function HeroSection() {
               transition={{
                 opacity: { delay: 0.6, duration: 0.5 },
                 x: { delay: 0.6, duration: 0.5 },
-                y: { duration: 7, repeat: Infinity, ease: "easeInOut" },
+                y: { duration: 7, repeat: Infinity, ease: "easeInOut" as const },
               }}
               style={{ y: chipLeftY }}
               className="absolute -left-4 md:-left-8 top-10 bg-white rounded-xl shadow-md border border-border p-3 items-center gap-2 hidden sm:flex"
