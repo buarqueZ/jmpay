@@ -4,20 +4,25 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
-const navLinks = ["Soluções", "Infraestrutura", "Segurança", "Sobre", "FAQ"];
+const navLinks: { label: string; id: string }[] = [
+  { label: "Início", id: "inicio" },
+  { label: "Plataforma", id: "plataforma" },
+  { label: "Funcionalidades", id: "funcionalidades" },
+  { label: "Benefícios", id: "beneficios" },
+  { label: "Como Funciona", id: "como-funciona" },
+  { label: "Contato", id: "contato" },
+];
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const [visible, setVisible] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setVisible(window.scrollY > window.innerHeight);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const scrollTo = (id: string) => {
@@ -27,74 +32,67 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg transition-transform duration-300 ${
-        visible ? "translate-y-0" : "-translate-y-full"
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-white/90 backdrop-blur-md border-b border-border" : "bg-white/60 backdrop-blur-sm"
       }`}
     >
-      <div className="container-tight flex h-16 items-center justify-between">
-        <img
-          src={logo}
-          alt="JM PAY"
-          className="h-8 w-auto"
-        />
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 flex h-16 md:h-20 items-center justify-between">
+        <button onClick={() => scrollTo("inicio")} className="flex items-center gap-2">
+          <img src={logo} alt="JMP" className="h-8 md:h-9 w-auto" />
+        </button>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
+        <nav className="hidden lg:flex items-center gap-9">
+          {navLinks.map((l) => (
             <button
-              key={link}
-              onClick={() => scrollTo(link.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""))}
-              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              key={l.id}
+              onClick={() => scrollTo(l.id)}
+              className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors"
             >
-              {link}
+              {l.label}
             </button>
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-3">
           <Button
-            variant="outline"
+            variant="ghost"
             size="sm"
-            className="border-black/40 text-black hover:bg-black/10"
+            className="text-foreground hover:bg-muted"
             onClick={() => navigate("/infos")}
           >
-            Login
+            Entrar
           </Button>
-          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90"
-            onClick={() => navigate("/infos")}
+          <Button
+            size="sm"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm rounded-full px-5"
+            onClick={() => scrollTo("contato")}
           >
-            Cadastro
+            Solicitar Demonstração
           </Button>
         </div>
 
-        {/* Mobile toggle */}
-        <button className="md:hidden text-foreground" onClick={() => setOpen(!open)}>
+        <button className="lg:hidden text-foreground" onClick={() => setOpen(!open)} aria-label="Menu">
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-background/95 backdrop-blur-lg px-6 py-6 space-y-4">
-          {navLinks.map((link) => (
+        <div className="lg:hidden bg-white border-t border-border px-6 py-6 space-y-3">
+          {navLinks.map((l) => (
             <button
-              key={link}
-              onClick={() => scrollTo(link.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""))}
-              className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+              key={l.id}
+              onClick={() => scrollTo(l.id)}
+              className="block w-full text-left text-sm font-medium text-foreground/80 hover:text-primary py-1"
             >
-              {link}
+              {l.label}
             </button>
           ))}
-          <div className="flex flex-col gap-2 pt-4">
-            <Button variant="outline" size="sm" className="border-black/40 text-black"
-              onClick={() => { setOpen(false); navigate("/infos"); }}
-            >
-              Login
+          <div className="flex flex-col gap-2 pt-3 border-t border-border">
+            <Button variant="outline" size="sm" onClick={() => { setOpen(false); navigate("/infos"); }}>
+              Entrar
             </Button>
-            <Button size="sm" className="bg-primary text-primary-foreground"
-              onClick={() => { setOpen(false); navigate("/infos"); }}
-            >
-              Cadastro
+            <Button size="sm" className="bg-primary text-primary-foreground" onClick={() => scrollTo("contato")}>
+              Solicitar Demonstração
             </Button>
           </div>
         </div>
