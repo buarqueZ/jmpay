@@ -44,7 +44,7 @@ export function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-3 mb-10">
               <Button
                 size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-7 gap-2 shadow-lg shadow-primary/20"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-7 gap-2 transition-transform hover:-translate-y-0.5"
                 onClick={() => scrollTo("sobre")}
               >
                 Conhecer a JMP <ArrowRight size={18} />
@@ -73,9 +73,14 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
+            style={{ y: mockupY }}
             className="relative"
           >
-            <div className="relative rounded-2xl bg-white border border-border shadow-2xl shadow-foreground/10 p-5 md:p-6">
+            <motion.div
+              animate={floatY.animate}
+              transition={floatY.transition}
+              className="relative rounded-2xl bg-white border border-border shadow-xl shadow-foreground/5 p-5 md:p-6"
+            >
               <div className="flex items-center justify-between mb-5">
                 <div className="flex items-center gap-2">
                   <div className="w-2.5 h-2.5 rounded-full bg-foreground/15" />
@@ -139,13 +144,18 @@ export function HeroSection() {
                 </div>
                 <Tag size={16} className="text-primary" />
               </div>
-            </div>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.6 }}
-              className="absolute -left-4 md:-left-8 top-10 bg-white rounded-xl shadow-lg border border-border p-3 items-center gap-2 hidden sm:flex"
+              animate={{ opacity: 1, x: 0, y: [0, -10, 0] }}
+              transition={{
+                opacity: { delay: 0.6, duration: 0.5 },
+                x: { delay: 0.6, duration: 0.5 },
+                y: { duration: 7, repeat: Infinity, ease: "easeInOut" },
+              }}
+              style={{ y: chipLeftY }}
+              className="absolute -left-4 md:-left-8 top-10 bg-white rounded-xl shadow-md border border-border p-3 items-center gap-2 hidden sm:flex"
             >
               <div className="w-9 h-9 rounded-lg bg-primary text-primary-foreground flex items-center justify-center">
                 <Users size={16} />
@@ -160,7 +170,8 @@ export function HeroSection() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.7 }}
-              className="absolute -right-3 md:-right-6 bottom-16 bg-white rounded-xl shadow-lg border border-border p-3 items-center gap-2 hidden sm:flex"
+              style={{ y: chipRightY }}
+              className="absolute -right-3 md:-right-6 bottom-16 bg-white rounded-xl shadow-md border border-border p-3 items-center gap-2 hidden sm:flex"
             >
               <div className="w-9 h-9 rounded-lg bg-accent text-primary flex items-center justify-center">
                 <ShoppingBag size={16} />
