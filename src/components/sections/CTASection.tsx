@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { ArrowRight, Send, CheckCircle2 } from "lucide-react";
+import { Send, CheckCircle2, Mail } from "lucide-react";
 import { z } from "zod";
 
 const WEBHOOK_URL = "https://auto.zendry.com/webhook/3deea560-a7fc-43ab-accc-d3c9fab2f3a0";
@@ -55,61 +55,65 @@ export function CTASection() {
         setForm({ name: "", email: "", phone: "", message: "" });
       }, 5000);
     } catch {
-      // silently handle
+      /* noop */
     } finally {
       setSending(false);
     }
   };
 
   return (
-    <section id="contato" className="relative section-padding">
-      <div className="container-tight relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          {/* Left: CTA text */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-left"
-          >
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-              A infraestrutura certa transforma pagamentos em{" "}
-              <span className="text-primary">vantagem competitiva</span>
-            </h2>
-            <p className="text-muted-foreground text-lg mb-10 leading-relaxed">
-              Fale com o time da JM PAY e veja como centralizar recebimentos, repasses e automação financeira em uma única operação.
-            </p>
+    <section id="contato" className="relative py-24 md:py-32 bg-white">
+      <div className="max-w-6xl mx-auto px-6 lg:px-10">
+        <div className="rounded-3xl bg-foreground text-white overflow-hidden">
+          <div className="grid lg:grid-cols-2 gap-0">
+            {/* Left content */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="p-10 md:p-14 lg:p-16 relative overflow-hidden"
+            >
+              <div className="absolute -top-24 -left-20 w-72 h-72 rounded-full bg-primary/30 blur-3xl" />
+              <div className="relative">
+                <span className="text-xs font-semibold tracking-widest text-primary uppercase">
+                  Solicitar demonstração
+                </span>
+                <h2 className="font-display text-3xl md:text-5xl font-bold mt-3 mb-5 leading-tight">
+                  Pronto para estruturar seu marketplace com a{" "}
+                  <span className="text-primary">JMP?</span>
+                </h2>
+                <p className="text-white/70 text-lg leading-relaxed mb-8">
+                  Conte sobre sua operação e te mostramos como a JMP pode acelerar o lançamento e a gestão do seu marketplace.
+                </p>
 
-          </motion.div>
+                <div className="flex items-center gap-3 text-sm text-white/80">
+                  <Mail size={18} className="text-primary" />
+                  contato@jmp.marketplace
+                </div>
+              </div>
+            </motion.div>
 
-          {/* Right: Contact form */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-          >
-            <div className="bg-card rounded-2xl p-6 md:p-8">
-              <h3 className="text-xl font-bold text-foreground mb-1">Fale com nosso time</h3>
-              <p className="text-sm text-muted-foreground mb-6">
-                Preencha o formulário e entraremos em contato em breve.
-              </p>
-
+            {/* Right form */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-white text-foreground p-8 md:p-12 lg:p-14"
+            >
               <AnimatePresence mode="wait">
                 {sent ? (
                   <motion.div
                     key="success"
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    className="flex flex-col items-center gap-4 py-12 text-center"
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    className="flex flex-col items-center justify-center text-center py-12 h-full"
                   >
-                    <CheckCircle2 size={48} className="text-primary" />
-                    <h4 className="text-2xl font-bold text-foreground">Mensagem enviada!</h4>
-                    <p className="text-muted-foreground">
-                      Recebemos sua mensagem e logo entraremos em contato.
-                    </p>
+                    <CheckCircle2 size={56} className="text-primary mb-4" />
+                    <h3 className="font-display text-2xl font-bold mb-2">Mensagem enviada!</h3>
+                    <p className="text-muted-foreground">Em breve nosso time entrará em contato.</p>
                   </motion.div>
                 ) : (
                   <motion.form
@@ -121,51 +125,48 @@ export function CTASection() {
                     className="space-y-4"
                   >
                     <div className="space-y-1.5">
-                      <Label htmlFor="contato-form" className="text-foreground">Nome</Label>
+                      <Label htmlFor="name">Nome</Label>
                       <Input
-                        id="contato-form"
+                        id="name"
                         placeholder="Seu nome completo"
                         value={form.name}
                         onChange={(e) => handleChange("name", e.target.value)}
-                        className="bg-muted/50 border-border"
                       />
                       {errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
                     </div>
 
                     <div className="space-y-1.5">
-                      <Label htmlFor="email" className="text-foreground">E-mail</Label>
+                      <Label htmlFor="email">E-mail corporativo</Label>
                       <Input
                         id="email"
                         type="email"
-                        placeholder="seu@email.com"
+                        placeholder="voce@empresa.com"
                         value={form.email}
                         onChange={(e) => handleChange("email", e.target.value)}
-                        className="bg-muted/50 border-border"
                       />
                       {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
                     </div>
 
                     <div className="space-y-1.5">
-                      <Label htmlFor="phone" className="text-foreground">Telefone</Label>
+                      <Label htmlFor="phone">Telefone</Label>
                       <Input
                         id="phone"
                         type="tel"
                         placeholder="(00) 00000-0000"
                         value={form.phone}
                         onChange={(e) => handleChange("phone", e.target.value)}
-                        className="bg-muted/50 border-border"
                       />
                       {errors.phone && <p className="text-sm text-destructive">{errors.phone}</p>}
                     </div>
 
                     <div className="space-y-1.5">
-                      <Label htmlFor="message" className="text-foreground">Mensagem</Label>
+                      <Label htmlFor="message">Como podemos ajudar?</Label>
                       <Textarea
                         id="message"
-                        placeholder="Escreva sua mensagem..."
+                        placeholder="Conte sobre seu projeto de marketplace..."
                         value={form.message}
                         onChange={(e) => handleChange("message", e.target.value)}
-                        className="bg-muted/50 border-border min-h-[100px]"
+                        className="min-h-[110px]"
                       />
                       {errors.message && <p className="text-sm text-destructive">{errors.message}</p>}
                     </div>
@@ -174,15 +175,15 @@ export function CTASection() {
                       type="submit"
                       size="lg"
                       disabled={sending}
-                      className="w-full gap-2"
+                      className="w-full gap-2 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full"
                     >
-                      {sending ? "Enviando..." : "Enviar mensagem"} <Send size={18} />
+                      {sending ? "Enviando..." : "Solicitar Demonstração"} <Send size={16} />
                     </Button>
                   </motion.form>
                 )}
               </AnimatePresence>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

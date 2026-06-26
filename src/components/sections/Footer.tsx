@@ -1,38 +1,32 @@
 import logo from "@/assets/logo.png";
 
-const footerLinks = {
-  "Soluções": ["PIX", "Cartões", "Split", "Automação", "Dashboard"],
-  "Empresa": ["Sobre", "Infraestrutura", "Segurança", "FAQ", "Contato"],
-  "Legal": ["Termos de uso", "Política de privacidade", "Compliance"],
+const links = {
+  Plataforma: ["Funcionalidades", "Benefícios", "Como Funciona", "Diferenciais"],
+  Empresa: ["Sobre a JMP", "Contato", "Solicitar Demonstração"],
+  Legal: ["Termos de uso", "Política de privacidade"],
 };
-
-const cnpj = "37.993.872/0001-08";
 
 export function Footer() {
   return (
-    <footer className="relative py-16 bg-black">
-      <div className="container-tight relative z-10">
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
+    <footer className="bg-foreground text-white pt-16 pb-10">
+      <div className="max-w-6xl mx-auto px-6 lg:px-10">
+        <div className="grid md:grid-cols-4 gap-10 mb-12">
           <div>
-            <img
-              src={logo}
-              alt="JM PAY"
-              className="h-10 w-auto brightness-0 invert"
-            />
-            <p className="text-sm text-gray-400 mt-3 leading-relaxed">
-              Infraestrutura de pagamentos para empresas que precisam crescer com estabilidade, segurança e controle.
+            <img src={logo} alt="JMP" className="h-9 w-auto brightness-0 invert" />
+            <p className="text-sm text-white/60 mt-4 leading-relaxed">
+              A plataforma completa para criar, gerenciar e escalar marketplaces de qualquer segmento.
             </p>
-            <p className="text-xs text-gray-500 mt-4">CNPJ: {cnpj}</p>
+            <p className="text-xs text-white/40 mt-4">contato@jmp.marketplace</p>
           </div>
 
-          {Object.entries(footerLinks).map(([title, links]) => (
+          {Object.entries(links).map(([title, items]) => (
             <div key={title}>
               <h4 className="font-display font-bold text-white mb-4">{title}</h4>
               <ul className="space-y-2">
-                {links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors">
-                      {link}
+                {items.map((l) => (
+                  <li key={l}>
+                    <a href="#" className="text-sm text-white/60 hover:text-primary transition-colors">
+                      {l}
                     </a>
                   </li>
                 ))}
@@ -41,13 +35,9 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-gray-500">
-            © 2025 JM PAY · Todos os direitos reservados
-          </p>
-          <p className="text-xs text-gray-500">
-            Infraestrutura de pagamentos para empresas que operam em escala
-          </p>
+        <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-white/40">© {new Date().getFullYear()} JMP Marketplace · Todos os direitos reservados</p>
+          <p className="text-xs text-white/40">Plataforma institucional · dados fictícios para demonstração</p>
         </div>
       </div>
     </footer>
