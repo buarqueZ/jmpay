@@ -1,8 +1,8 @@
 import logo from "@/assets/logo.png";
 
 const links = {
-  Plataforma: ["Funcionalidades", "Benefícios", "Como Funciona", "Diferenciais"],
-  Empresa: ["Sobre a JMP", "Contato", "Solicitar Demonstração"],
+  Marketplace: ["Sobre a JMP", "Categorias", "Como Funciona", "Diferenciais"],
+  Institucional: ["Quem somos", "Contato", "Trabalhe conosco"],
   Legal: ["Termos de uso", "Política de privacidade"],
 };
 
@@ -14,7 +14,7 @@ export function Footer() {
           <div>
             <img src={logo} alt="JMP" className="h-9 w-auto brightness-0 invert" />
             <p className="text-sm text-white/60 mt-4 leading-relaxed">
-              A plataforma completa para criar, gerenciar e escalar marketplaces de qualquer segmento.
+              JMP Marketplace — um espaço para conectar marcas, lojas e pessoas em uma experiência única.
             </p>
             <p className="text-xs text-white/40 mt-4">contato@jmp.marketplace</p>
           </div>

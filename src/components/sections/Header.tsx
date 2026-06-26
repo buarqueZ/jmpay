@@ -6,8 +6,8 @@ import logo from "@/assets/logo.png";
 
 const navLinks: { label: string; id: string }[] = [
   { label: "Início", id: "inicio" },
-  { label: "Plataforma", id: "plataforma" },
-  { label: "Funcionalidades", id: "funcionalidades" },
+  { label: "Sobre", id: "sobre" },
+  { label: "Categorias", id: "categorias" },
   { label: "Benefícios", id: "beneficios" },
   { label: "Como Funciona", id: "como-funciona" },
   { label: "Contato", id: "contato" },
@@ -67,7 +67,7 @@ export function Header() {
             className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm rounded-full px-5"
             onClick={() => scrollTo("contato")}
           >
-            Solicitar Demonstração
+            Fale com a JMP
           </Button>
         </div>
 
@@ -92,7 +92,7 @@ export function Header() {
               Entrar
             </Button>
             <Button size="sm" className="bg-primary text-primary-foreground" onClick={() => scrollTo("contato")}>
-              Solicitar Demonstração
+              Fale com a JMP
             </Button>
           </div>
         </div>

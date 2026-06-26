@@ -77,14 +77,14 @@ export function CTASection() {
               <div className="absolute -top-24 -left-20 w-72 h-72 rounded-full bg-primary/30 blur-3xl" />
               <div className="relative">
                 <span className="text-xs font-semibold tracking-widest text-primary uppercase">
-                  Solicitar demonstração
+                  Fale com a JMP
                 </span>
                 <h2 className="font-display text-3xl md:text-5xl font-bold mt-3 mb-5 leading-tight">
-                  Pronto para estruturar seu marketplace com a{" "}
+                  Quer fazer parte do marketplace{" "}
                   <span className="text-primary">JMP?</span>
                 </h2>
                 <p className="text-white/70 text-lg leading-relaxed mb-8">
-                  Conte sobre sua operação e te mostramos como a JMP pode acelerar o lançamento e a gestão do seu marketplace.
+                  Seja você comprador, lojista ou parceiro — conte para a gente como podemos te ajudar. Nosso time responde em breve.
                 </p>
 
                 <div className="flex items-center gap-3 text-sm text-white/80">
@@ -160,10 +160,10 @@ export function CTASection() {
                     </div>
 
                     <div className="space-y-1.5">
-                      <Label htmlFor="message">Como podemos ajudar?</Label>
+                      <Label htmlFor="message">Sua mensagem</Label>
                       <Textarea
                         id="message"
-                        placeholder="Conte sobre seu projeto de marketplace..."
+                        placeholder="Como podemos te ajudar?"
                         value={form.message}
                         onChange={(e) => handleChange("message", e.target.value)}
                         className="min-h-[110px]"
@@ -177,7 +177,7 @@ export function CTASection() {
                       disabled={sending}
                       className="w-full gap-2 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full"
                     >
-                      {sending ? "Enviando..." : "Solicitar Demonstração"} <Send size={16} />
+                      {sending ? "Enviando..." : "Enviar mensagem"} <Send size={16} />
                     </Button>
                   </motion.form>
                 )}
