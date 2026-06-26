@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
 const steps = [
-  { n: "01", title: "Empresa cria seu marketplace", text: "Configure identidade, regras de comissão e categorias em poucos passos." },
-  { n: "02", title: "Vendedores entram na plataforma", text: "Onboarding rápido com documentação e aprovação centralizada." },
-  { n: "03", title: "Produtos e serviços exibidos", text: "Vitrine pronta para receber pedidos e converter clientes." },
-  { n: "04", title: "Gestão em um painel único", text: "Acompanhe pedidos, comissões, métricas e operação em tempo real." },
+  { n: "01", title: "Explore o marketplace", text: "Navegue por categorias e marcas selecionadas pela JMP." },
+  { n: "02", title: "Escolha o que combina", text: "Encontre produtos com variedade e boas oportunidades." },
+  { n: "03", title: "Compre com confiança", text: "Lojas verificadas e suporte ao longo da jornada." },
+  { n: "04", title: "Receba e aproveite", text: "Acompanhe o pedido e tenha uma experiência tranquila." },
 ];
 
 export function HowItWorksSection() {
@@ -20,7 +20,7 @@ export function HowItWorksSection() {
         >
           <span className="text-xs font-semibold tracking-widest text-primary uppercase">Como funciona</span>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mt-3 mb-5">
-            Quatro passos para colocar seu marketplace <span className="text-primary">no ar</span>
+            Uma experiência simples, do início ao <span className="text-primary">fim</span>
           </h2>
         </motion.div>
 
